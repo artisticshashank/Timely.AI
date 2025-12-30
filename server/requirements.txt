@@ -1,0 +1,4 @@
+Flask==3.1.2
+flask-cors==6.0.2
+ortools==9.14.6206
+gunicorn==22.0.0

@@ -2,9 +2,13 @@ from datetime import datetime
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from ortools.sat.python import cp_model
+import os
 
 app = Flask(__name__)
-CORS(app)
+
+# CORS configuration for production
+allowed_origins = os.getenv('ALLOWED_ORIGINS', '*').split(',')
+CORS(app, origins=allowed_origins)
 
 def parse_timeslot(ts_str):
     """
@@ -746,4 +750,17 @@ def analyze_constraints(instructors, courses, rooms, student_groups, days, times
     return issues
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=True, reloader_interval=1, reloader_type='stat', extra_files=None, exclude_patterns=['*/Timely_venv/*', '*\\Timely_venv\\*'])
+    # For local development
+    port = int(os.getenv('PORT', 5000))
+    debug = os.getenv('FLASK_ENV', 'development') == 'development'
+    
+    app.run(
+        debug=debug, 
+        host='0.0.0.0', 
+        port=port, 
+        use_reloader=debug, 
+        reloader_interval=1, 
+        reloader_type='stat', 
+        extra_files=None, 
+        exclude_patterns=['*/Timely_venv/*', '*\\Timely_venv\\*']
+    )

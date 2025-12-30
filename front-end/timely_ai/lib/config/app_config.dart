@@ -1,15 +1,11 @@
 /// Application configuration settings
 class AppConfig {
   // Server URL configuration
-  // Change this to your backend server URL
-  // For local development:
-  //   - Android Emulator: http://10.0.2.2:5000
-  //   - iOS Simulator: http://localhost:5000
-  //   - Physical device: http://YOUR_LOCAL_IP:5000
-  //   - Web/Desktop: http://localhost:5000
+  // Production backend URL (Render)
+  // For local development, change back to: http://localhost:5000
   static const String serverUrl = String.fromEnvironment(
     'SERVER_URL',
-    defaultValue: 'http://localhost:5000',
+    defaultValue: 'https://timely-ai.onrender.com',
   );
 
   static const String generateTimetableEndpoint = '/generate-timetable';
