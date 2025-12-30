@@ -15,8 +15,9 @@ class AppConfig {
       '$serverUrl$generateTimetableEndpoint';
 
   // Timeout configurations
-  static const Duration networkTimeout = Duration(seconds: 60);
-  static const Duration solverTimeout = Duration(seconds: 30);
+  // Increased for Render free tier cold starts (can take 30-60 seconds)
+  static const Duration networkTimeout = Duration(seconds: 120);
+  static const Duration solverTimeout = Duration(seconds: 90);
 
   // App metadata
   static const String appName = 'Timely.AI';
