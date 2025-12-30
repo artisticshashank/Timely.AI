@@ -378,7 +378,7 @@ This project is licensed under the MIT License - see LICENSE file for details.
 
 For issues and questions:
 - **Issues**: [GitHub Issues](https://github.com/yourusername/Timely.AI/issues)
-- **Email**: your.email@example.com
+- **Email**: shashankhu2024@gmail.com
 - **Documentation**: [Wiki](https://github.com/yourusername/Timely.AI/wiki)
 
 ---
